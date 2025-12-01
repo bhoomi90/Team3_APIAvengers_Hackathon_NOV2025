@@ -10,589 +10,7 @@
     "Response_Status_Code": 200,
     "expectedstatusline": "OK"
   },
-  {
-    "testcaseId": "P_POST_TC_01",
-    "scenarioName": "Create valid program",
-    "endPoint": "saveprogram",
-    "requestOperation": "postprogram",
-    "scenarioType": "Positive",
-    "programName": "CCCbatch",
-    "programDescription": "ACCET",
-    "programStatus": "Active",
-    "expectedStatus": 201,
-    "expectedStatusMessage": "created",
-    "expectedRespMessage": null
-  },
-  {
-    "testcaseId": "P_POST_TC_02",
-    "scenarioName": "Create program name <4 chars",
-    "endPoint": "saveprogram",
-    "requestOperation": "postprogram",
-    "scenarioType": "Negative",
-    "programName": "abc",
-    "programDescription": "Valid description",
-    "programStatus": "Active",
-    "expectedStatus": 400,
-    "expectedStatusMessage": "Bad Request",
-    "expectedRespMessage": "Program Name must be of min length 4 and max length 25."
-  },
-  {
-    "testcaseId": "P_POST_TC_03",
-    "scenarioName": "Create Program name > 25 chars",
-    "endPoint": "saveprogram",
-    "requestOperation": "postprogram",
-    "scenarioType": "Negative",
-    "programName": "ABCDEFGHIJKLMNOPQRSTUVWXYZZ",
-    "programDescription": "Valid description",
-    "programStatus": "Active",
-    "expectedStatus": 400,
-    "expectedStatusMessage": "Bad Request",
-    "expectedRespMessage": "Program Name must be of min length 4 and max length 25."
-  },
-  {
-    "testcaseId": "P_POST_TC_04",
-    "scenarioName": "Create Program name with special characters",
-    "endPoint": "saveprogram",
-    "requestOperation": "postprogram",
-    "scenarioType": "Negative",
-    "programName": "Java@123",
-    "programDescription": "Valid description",
-    "programStatus": "Active",
-    "expectedStatus": 400,
-    "expectedStatusMessage": "Bad Request",
-    "expectedRespMessage": "programName Must contain only letters and sometimes hyphens"
-  },
-  {
-    "testcaseId": "P_POST_TC_05",
-    "scenarioName": "Create duplicate program",
-    "endPoint": "saveprogram",
-    "requestOperation": "postprogram",
-    "scenarioType": "Positive",
-    "programName": "LAAbatch",
-    "programDescription": "ACCET",
-    "programStatus": "Active",
-    "expectedStatus": 400,
-    "expectedStatusMessage": "Not Found",
-    "expectedRespMessage": "cannot create program , since already exists"
-  },
-  {
-    "testcaseId": "P_GETID_TC_01",
-    "scenarioName": "Get program by valid program id",
-    "endPoint": "programs",
-    "requestOperation": "getbyId",
-    "scenarioType": "Positive",
-    "expectedStatus": 200,
-    "expectedStatusMessage": "OK"
-  },
-  {
-    "testcaseId": "P_GETID_TC_01",
-    "scenarioName": "Get program by invalid program id",
-    "endPoint": "programs",
-    "requestOperation": "getbyId",
-    "scenarioType": "Negative",
-    "programId": "1000",
-    "expectedStatus": 404,
-    "expectedStatusMessage": "OK"
-  },
-  {
-    "testcaseId": "P_GETID_TC_01",
-    "scenarioName": "Get program by invalid endPoint",
-    "endPoint": "program",
-    "requestOperation": "getbyId",
-    "scenarioType": "Negative",
-    "expectedStatus": 405,
-    "expectedStatusMessage": "OK"
-  },
-  {
-    "testcaseId": "P_DELETEID_TC_01",
-    "scenarioName": "Delete program by program id",
-    "endPoint": "deletebyprogid",
-    "requestOperation": "deletebyId",
-    "scenarioType": "Positive",
-    "expectedStatus": 200,
-    "expectedStatusMessage": "OK"
-  },
-  {
-    "testcaseId": "P_DELETEID_TC_02",
-    "scenarioName": "Delete program by invalid program id",
-    "endPoint": "deletebyprogid",
-    "requestOperation": "deletebyId",
-    "scenarioType": "Negative",
-    "expectedStatus": 404,
-    "expectedStatusMessage": "Not Found",
-    "expectedRespMessage": "No active program"
-  },
-  {
-    "testcaseId": "P_PUTID_TC_01",
-    "scenarioName": "Update program with valid programId",
-    "endPoint": "putprogram",
-    "requestOperation": "updateprogrambyId",
-    "scenarioType": "Positive",
-    "programName": "CCCbatch",
-    "programDescription": "College",
-    "programStatus": "Active",
-    "expectedStatus": 200,
-    "expectedStatusMessage": "Ok",
-    "expectedRespMessage": null
-  },
-  {
-    "testcaseId": "P_PUTID_TC_02",
-    "scenarioName": "Update program with invalid programId",
-    "endPoint": "putprogram",
-    "requestOperation": "updateprogrambyId",
-    "scenarioType": "Negative",
-    "programId": "2030",
-    "programName": "testtt",
-    "programDescription": "descriptionnn",
-    "programStatus": "Active",
-    "expectedStatus": 404,
-    "expectedStatusMessage": "Not Found",
-    "expectedRespMessage": "not found"
-  },
-  {
-    "testcaseId": "P_DELETENAME_TC_01",
-    "scenarioName": "Delete program by program name",
-    "endPoint": "deletebyprogname",
-    "requestOperation": "deletebyname",
-    "scenarioType": "Positive",
-    "expectedStatus": 200,
-    "expectedStatusMessage": "OK"
-  },
-  {
-    "testcaseId": "P_DELETENAME_TC_02",
-    "scenarioName": "Delete program by invalid program name",
-    "endPoint": "deletebyprogname",
-    "requestOperation": "deletebyname",
-    "scenarioType": "Negative",
-    "expectedStatus": 404,
-    "expectedStatusMessage": "Not Found",
-    "expectedRespMessage": "found"
-  },
-  {
-    "testcaseId": "P_PUTName_TC_01",
-    "scenarioName": "Update program with valid programName",
-    "endPoint": "program",
-    "requestOperation": "updateprogrambyName",
-    "scenarioType": "Positive",
-    "programName": "CCCbatch",
-    "programDescription": "University",
-    "programStatus": "Active",
-    "expectedStatus": 200,
-    "expectedStatusMessage": "Ok",
-    "expectedRespMessage": null
-  },
-  {
-    "testcaseId": "P_PUTName_TC_02",
-    "scenarioName": "Update program with invalid programName",
-    "endPoint": "program",
-    "requestOperation": "updateprogrambyName",
-    "scenarioType": "Negative",
-    "programName": "course-z",
-    "programDescription": "descriptionXX",
-    "programStatus": "Active",
-    "expectedStatus": 404,
-    "expectedStatusMessage": "Not Found",
-    "expectedRespMessage": "no Such program name"
-  },
-  {
-    "testcaseId": "P_GETALL_TC_01",
-    "scenarioName": "Get all programs",
-    "endPoint": "allPrograms",
-    "requestOperation": "getallprograms",
-    "scenarioType": "Positive",
-    "expectedStatus": 200,
-    "expectedStatusMessage": "OK"
-  },
-  {
-    "testcaseId": "P_GETALL_TC_02",
-    "scenarioName": "Get all programs with invalid endPoint",
-    "endPoint": "allProgram",
-    "requestOperation": "getallprograms",
-    "scenarioType": "Negative",
-    "expectedStatus": 404,
-    "expectedStatusMessage": "Not Found"
-  },
-  {
-    "testcaseId": "P_GETUSER_TC_01",
-    "scenarioName": "Get program by user",
-    "endPoint": "allProgramsWithUsers",
-    "requestOperation": "getbyUser",
-    "scenarioType": "Positive",
-    "expectedStatus": 200,
-    "expectedStatusMessage": "OK"
-  },
-  {
-    "testcaseId": "P_MISSING_TC_01",
-    "scenarioName": "Missing Program Name for Create",
-    "endPoint": "saveprogram",
-    "requestType": "POST",
-    "requestOperation": "Missing",
-    "scenarioType": "Negative",
-    "missingMandatory": "programName",
-    "programDescription": "ABCDE",
-    "programStatus": "Active",
-    "expectedStatus": 400,
-    "expectedStatusMessage": "Bad Request",
-    "expectedRespMessage": "Mandatory"
-  },
-  {
-    "testcaseId": "P_MISSING_TC_02",
-    "scenarioName": "Missing Program status for Create",
-    "endPoint": "saveprogram",
-    "requestType": "POST",
-    "requestOperation": "Missing",
-    "missingMandatory": "programStatus",
-    "scenarioType": "Negative",
-    "programName": "ABCDE",
-    "expectedStatus": 400,
-    "expectedStatusMessage": "Bad Request",
-    "expectedRespMessage": "Invalid Status"
-  },
-  {
-    "testcaseId": "P_MISSING_TC_01",
-    "scenarioName": "Missing Program status for Update",
-    "endPoint": "putprogram/65",
-    "requestType": "PUT",
-    "requestOperation": "Missing",
-    "missingMandatory": "programStatus",
-    "scenarioType": "Negative",
-    "programName": "ABCDE",
-    "expectedStatus": 400,
-    "expectedStatusMessage": "Bad Request",
-    "expectedRespMessage": "Invalid Status"
-  },
-  {
-    "testCaseId": "RP_POST_ResetPassword_TC_01",
-    "scenarioName": "Reset Password with invalid email using valid login token",
-    "scenarioType": "Negative",
-    "request_name": "ResetPassword",
-    "endPoint": "resetPassword",
-    "userLoginEmailId": "wrong-email@test.com",
-    "password": "ApiRequestA@23",
-    "Response_Status_Code": 400,
-    "expectedstatusline": "Bad Request"
-  },
-  {
-    "testCaseId": "RP_POST_ResetPassword_TC_02",
-    "scenarioName": "Reset Password with email blank using valid login token",
-    "scenarioType": "Negative",
-    "request_name": "ResetPassword",
-    "endPoint": "resetPassword",
-    "userLoginEmailId": "",
-    "password": "ApiRequestA@23",
-    "Response_Status_Code": 400,
-    "expectedstatusline": "Bad Request"
-  },
-  {
-    "testCaseId": "RP_POST_ResetPassword_TC_03",
-    "scenarioName": "Reset Password with email and password blank using valid login token",
-    "scenarioType": "Negative",
-    "request_name": "ResetPassword",
-    "endPoint": "resetPassword",
-    "userLoginEmailId": "",
-    "password": "",
-    "Response_Status_Code": 400,
-    "expectedstatusline": "Bad Request"
-  },
-  {
-    "testCaseId": "RP_POST_ResetPassword_TC_04",
-    "scenarioName": "Reset Password with valid email using valid login token",
-    "scenarioType": "Positive",
-    "request_name": "ResetPassword",
-    "endPoint": "resetPassword",
-    "userLoginEmailId": "Team3@gmail.com",
-    "password": "ApiRequestA@23",
-    "Response_Status_Code": 200,
-    "expectedstatusline": "OK"
-  },
-  {
-    "testCaseId": "L_POST_Login_After_Reset_TC_01",
-    "scenarioName": "Login after reset password with valid credentials",
-    "scenarioType": "Positive",
-    "request_name": "LoginAfterReset",
-    "endPoint": "login",
-    "userLoginEmailId": "Team3@gmail.com",
-    "password": "ApiRequestA@23",
-    "Response_Status_Code": 200,
-    "expectedstatusline": "OK"
-  },
-  {
-    "testCaseId": "L_POST_Login_After_Reset_TC_02",
-    "scenarioName": "Login after reset password with blank credentials",
-    "scenarioType": "Negative",
-    "request_name": "LoginAfterReset",
-    "endPoint": "login",
-    "userLoginEmailId": "",
-    "password": "",
-    "Response_Status_Code": 400,
-    "expectedstatusline": "Bad Request"
-  },
-  {
-    "testCaseId": "L_POST_Login_After_Reset_TC_03",
-    "scenarioName": "Login after reset password with blank credentials",
-    "scenarioType": "Negative",
-    "request_name": "LoginAfterReset",
-    "endPoint": "login",
-    "userLoginEmailId": "",
-    "password": "TeamRequestA@23",
-    "Response_Status_Code": 400,
-    "expectedstatusline": "Bad Request"
-  },
-  {
-    "testCaseId": "L_POST_Login_After_Reset_TC_04",
-    "scenarioName": "Login after reset password with blank credentials",
-    "scenarioType": "Negative",
-    "request_name": "LoginAfterReset",
-    "endPoint": "login",
-    "userLoginEmailId": "Team3@gmail.com",
-    "password": "",
-    "Response_Status_Code": 400,
-    "expectedstatusline": "Bad Request"
-  },
-  {
-    "testCaseId": "FP_POST_ConfirmEmail_TC_01",
-    "scenarioName": "ForgotPassword Confirm Email with valid email",
-    "scenarioType": "Positive",
-    "request_name": "ForgotPasswordConfirmEmail",
-    "endPoint": "login/forgotpassword/confirmEmail",
-    "userLoginEmailId": "Team3@gmail.com",
-    "Response_Status_Code": 201,
-    "expectedstatusline": "Created"
-  },
-  {
-    "testCaseId": "FP_POST_ConfirmEmail_TC_02",
-    "scenarioName": "ForgotPassword Confirm Email with invalid email",
-    "scenarioType": "Negative",
-    "request_name": "ForgotPasswordConfirmEmail",
-    "endPoint": "login/forgotpassword/confirmEmail",
-    "userLoginEmailId": "",
-    "Response_Status_Code": 400,
-    "expectedstatusline": "Bad Request"
-  },
-  {
-    "testCaseId": "L_GET_Logout_TC_01",
-    "scenarioName": "Logout successfully",
-    "scenarioType": "Positive",
-    "request_name": "Logout",
-    "endPoint": "logoutlms",
-    "Response_Status_Code": 200,
-    "expectedstatusline": "OK"
-  },
-  {
-    "testCaseId": "S_Get_all_TC_01",
-    "scenarioName": "Get all skills",
-    "requestOperation": "getAllSkills",
-    "scenarioType": "Positive",
-    "endPoint": "allSkillMaster",
-    "expectedStatusCode": 200,
-    "expectedstatusline": "OK"
-  },
-  {
-    "testCaseId": "S_Get_all_TC_02",
-    "scenarioName": "Get all skills with invalid endpoint",
-    "requestOperation": "getAllSkills",
-    "scenarioType": "Negative",
-    "endPoint": "allSkilMaster",
-    "expectedStatusCode": 404,
-    "expectedstatusline": "not found"
-  },
-  {
-    "testCaseId": "S_Get_TC_01",
-    "scenarioName": "Get skill by valid skill name",
-    "requestOperation": "getSkillByName",
-    "scenarioType": "Positive",
-    "endPoint": "skills",
-    "expectedStatusCode": 200,
-    "expectedstatusline": "OK"
-  },
-  {
-    "testCaseId": "S_Get_TC_02",
-    "scenarioName": "Get skill by invalid skill name",
-    "requestOperation": "getSkillByName",
-    "scenarioType": "Negative",
-    "endPoint": "skills",
-    "skillMasterName": "goo*gle",
-    "expectedStatusCode": 404,
-    "expectedstatusline": "not found"
-  },
-  {
-    "testCaseId": "S_Get_TC_03",
-    "scenarioName": "Get skill by invalid endpoint",
-    "requestOperation": "getSkillByName",
-    "scenarioType": "Negative",
-    "endPoint": "skill",
-    "expectedStatusCode": 404,
-    "expectedstatusline": "not found"
-  },
-  {
-    "testCaseId": "S_Post_TC_06",
-    "scenarioName": "Create new skill with valid data",
-    "requestOperation": "createSkill",
-    "scenarioType": "Positive",
-    "endPoint": "SaveSkillMaster",
-    "expectedStatusCode": 200,
-    "expectedstatusline": "OK",
-    "skillName" : "Creaket"
-  },
-  {
-    "testCaseId": "S_Post_TC_06",
-    "scenarioName": "Create new skill with invalid data",
-    "requestOperation": "createSkill",
-    "scenarioType": "Negative",
-    "endPoint": "SaveSkillMaster",
-    "expectedStatusCode": 400,
-    "expectedstatusline": "bad request",
-    "skillName" : "Cric&ket"
-  },
-  {
-    "testCaseId": "S_Post_TC_06",
-    "scenarioName": "Create new skill with invalid endpoint",
-    "requestOperation": "createSkill",
-    "scenarioType": "Negative",
-    "endPoint": "SaveSkilMaster",
-    "expectedStatusCode": 404,
-    "expectedstatusline": "not found",
-    "skillName" : "Cricket"
-  },
-  {
-    "testCaseId": "S_Post_TC_06",
-    "scenarioName": "Create new skill with invalid content type",
-    "scenarioType": "Negative",
-    "endPoint": "SaveSkillMaster",
-    "expectedStatusCode": 415,
-    "expectedstatusline": "unsupported media",
-    "skillName" : "cricket"
-  },
-  {
-    "testCaseId": "S_Post_TC_06",
-    "scenarioName": "Create new skill with invalid method",
-    "scenarioType": "Negative",
-    "endPoint": "SaveSkillMaster",
-    "expectedStatusCode": 405,
-    "expectedstatusline": "method not found",
-    "skillName" : "cricket"
-  },
-  {
-    "testCaseId": "S_Post_TC_06",
-    "scenarioName": "Create new skill with no auth",
-    "scenarioType": "Negative",
-    "endPoint": "SaveSkillMaster",
-    "expectedStatusCode": 401,
-    "expectedstatusline": "unauthorized",
-    "skillName" : "cricket"
-  },
-  {
-    "testCaseId": "S_PUT_TC_06",
-    "scenarioName": "Update skill with valid data",
-    "requestOperation": "updateSkill",
-    "scenarioType": "Positive",
-    "endPoint": "updateSkills",
-    "expectedStatusCode": 200,
-    "expectedstatusline": "OK",
-    "skillName" : "football"
-  },
-  {
-    "testCaseId": "S_PUT_TC_06",
-    "scenarioName": "Update skill with invalid data",
-    "requestOperation": "updateSkill",
-    "scenarioType": "Negative",
-    "endPoint": "updateSkills",
-    "expectedStatusCode": 400,
-    "expectedstatusline": "bad request",
-    "skillName" : "footb%all"
-  },
-  {
-    "testCaseId": "S_PUT_TC_06",
-    "scenarioName": "Update skill with invalid skillId",
-    "requestOperation": "updateSkill",
-    "scenarioType": "Negative",
-    "endPoint": "updateSkills",
-    "expectedStatusCode": 404,
-    "expectedstatusline": "bad request",
-    "skillName" : "football",
-    "skillId": 10000
-  },
-  {
-    "testCaseId": "S_PUT_TC_06",
-    "scenarioName": "Update skill with invalid endpoint",
-    "requestOperation": "updateSkill",
-    "scenarioType": "Negative",
-    "endPoint": "updatSkills",
-    "expectedStatusCode": 404,
-    "expectedstatusline": "not found",
-    "skillName" : "football"
-  },
-  {
-    "testCaseId": "S_PUT_TC_06",
-    "scenarioName": "Update skill with invalid content type",
-    "scenarioType": "Negative",
-    "endPoint": "updateSkills",
-    "expectedStatusCode": 415,
-    "expectedstatusline": "unsupported media",
-    "skillName" : "football"
-  },
-  {
-    "testCaseId": "S_PUT_TC_06",
-    "scenarioName": "Update skill with invalid method",
-    "scenarioType": "Negative",
-    "endPoint": "updateSkills",
-    "expectedStatusCode": 405,
-    "expectedstatusline": "not allowed",
-    "skillName" : "football"
-  },
-  {
-    "testCaseId": "S_PUT_TC_06",
-    "scenarioName": "Update skill with no auth",
-    "scenarioType": "Negative",
-    "endPoint": "updateSkills",
-    "expectedStatusCode": 401,
-    "expectedstatusline": "unauthorized",
-    "skillName" : "football"
-  },
-  {
-    "testCaseId": "S_DELETE_TC_06",
-    "scenarioName": "Delete skill by valid skillId",
-    "requestOperation": "deleteSkill",
-    "scenarioType": "Positive",
-    "endPoint": "deletebySkillId",
-    "expectedStatusCode": 200,
-    "expectedstatusline": "OK"
-  },
-  {
-    "testCaseId": "S_DELETE_TC_06",
-    "scenarioName": "Delete skill by invalid skillId",
-    "requestOperation": "deleteSkill",
-    "scenarioType": "Negative",
-    "endPoint": "deletebySkillId",
-    "expectedStatusCode": 404,
-    "expectedstatusline": "OK",
-    "skillId": 10000
-  },
-  {
-    "testCaseId": "S_DELETE_TC_06",
-    "scenarioName": "Delete skill by invalid endpoint",
-    "requestOperation": "deleteSkill",
-    "scenarioType": "Negative",
-    "endPoint": "deletbySkillId",
-    "expectedStatusCode": 404,
-    "expectedstatusline": "not found"
-  },
-  {
-    "testCaseId": "S_DELETE_TC_06",
-    "scenarioName": "Delete skill with invalid method",
-    "scenarioType": "Negative",
-    "endPoint": "deletebySkillId",
-    "expectedStatusCode": 405,
-    "expectedstatusline": "method not allowed"
-  },
-  {
-    "testCaseId": "S_DELETE_TC_06",
-    "scenarioName": "Delete skill with no auth",
-    "scenarioType": "Negative",
-    "endPoint": "deletebySkillId",
-    "expectedStatusCode": 401,
-    "expectedstatusline": "unauthorized"
-  },
+
 {
 	"testCaseId": "U_POST_Create_User_TC_01", 
 	"scenarioName": "User Creation with valid data",
@@ -980,6 +398,262 @@
 	"expectedStatusCode": 400,
 	"expectedStatusMessage": "Bad Request"
 },
+
+
+  {
+    "testcaseId": "P_POST_TC_01",
+    "scenarioName": "Create valid program",
+    "endPoint": "saveprogram",
+    "requestOperation": "postprogram",
+    "scenarioType": "Positive",
+    "programName": "CCCbatch",
+    "programDescription": "ACCET",
+    "programStatus": "Active",
+    "expectedStatus": 201,
+    "expectedStatusMessage": "created",
+    "expectedRespMessage": null
+  },
+  {
+    "testcaseId": "P_POST_TC_02",
+    "scenarioName": "Create program name <4 chars",
+    "endPoint": "saveprogram",
+    "requestOperation": "postprogram",
+    "scenarioType": "Negative",
+    "programName": "abc",
+    "programDescription": "Valid description",
+    "programStatus": "Active",
+    "expectedStatus": 400,
+    "expectedStatusMessage": "Bad Request",
+    "expectedRespMessage": "Program Name must be of min length 4 and max length 25."
+  },
+  {
+    "testcaseId": "P_POST_TC_03",
+    "scenarioName": "Create Program name > 25 chars",
+    "endPoint": "saveprogram",
+    "requestOperation": "postprogram",
+    "scenarioType": "Negative",
+    "programName": "ABCDEFGHIJKLMNOPQRSTUVWXYZZ",
+    "programDescription": "Valid description",
+    "programStatus": "Active",
+    "expectedStatus": 400,
+    "expectedStatusMessage": "Bad Request",
+    "expectedRespMessage": "Program Name must be of min length 4 and max length 25."
+  },
+  {
+    "testcaseId": "P_POST_TC_04",
+    "scenarioName": "Create Program name with special characters",
+    "endPoint": "saveprogram",
+    "requestOperation": "postprogram",
+    "scenarioType": "Negative",
+    "programName": "Java@123",
+    "programDescription": "Valid description",
+    "programStatus": "Active",
+    "expectedStatus": 400,
+    "expectedStatusMessage": "Bad Request",
+    "expectedRespMessage": "programName Must contain only letters and sometimes hyphens"
+  },
+  {
+    "testcaseId": "P_POST_TC_05",
+    "scenarioName": "Create duplicate program",
+    "endPoint": "saveprogram",
+    "requestOperation": "postprogram",
+    "scenarioType": "Positive",
+    "programName": "LAAbatch",
+    "programDescription": "ACCET",
+    "programStatus": "Active",
+    "expectedStatus": 400,
+    "expectedStatusMessage": "Not Found",
+    "expectedRespMessage": "cannot create program , since already exists"
+  },
+  {
+    "testcaseId": "P_GETID_TC_06",
+    "scenarioName": "Get program by valid program id",
+    "endPoint": "programs",
+    "requestOperation": "getbyId",
+    "scenarioType": "Positive",
+    "expectedStatus": 200,
+    "expectedStatusMessage": "OK"
+  },
+  {
+    "testcaseId": "P_GETID_TC_07",
+    "scenarioName": "Get program by invalid program id",
+    "endPoint": "programs",
+    "requestOperation": "getbyId",
+    "scenarioType": "Negative",
+    "programId": "1000",
+    "expectedStatus": 404,
+    "expectedStatusMessage": "OK"
+  },
+  {
+    "testcaseId": "P_GETID_TC_08",
+    "scenarioName": "Get program by invalid endPoint",
+    "endPoint": "program",
+    "requestOperation": "getbyId",
+    "scenarioType": "Negative",
+    "expectedStatus": 405,
+    "expectedStatusMessage": "OK"
+  },
+  {
+    "testcaseId": "P_DELETEID_TC_09",
+    "scenarioName": "Delete program by program id",
+    "endPoint": "deletebyprogid",
+    "requestOperation": "deletebyId",
+    "scenarioType": "Positive",
+    "expectedStatus": 200,
+    "expectedStatusMessage": "OK"
+  },
+  {
+    "testcaseId": "P_DELETEID_TC_10",
+    "scenarioName": "Delete program by invalid program id",
+    "endPoint": "deletebyprogid",
+    "requestOperation": "deletebyId",
+    "scenarioType": "Negative",
+    "expectedStatus": 404,
+    "expectedStatusMessage": "Not Found",
+    "expectedRespMessage": "No active program"
+  },
+  {
+    "testcaseId": "P_PUTID_TC_11",
+    "scenarioName": "Update program with valid programId",
+    "endPoint": "putprogram",
+    "requestOperation": "updateprogrambyId",
+    "scenarioType": "Positive",
+    "programName": "CCCbatch",
+    "programDescription": "College",
+    "programStatus": "Active",
+    "expectedStatus": 200,
+    "expectedStatusMessage": "Ok",
+    "expectedRespMessage": null
+  },
+  {
+    "testcaseId": "P_PUTID_TC_12",
+    "scenarioName": "Update program with invalid programId",
+    "endPoint": "putprogram",
+    "requestOperation": "updateprogrambyId",
+    "scenarioType": "Negative",
+    "programId": "2030",
+    "programName": "testtt",
+    "programDescription": "descriptionnn",
+    "programStatus": "Active",
+    "expectedStatus": 404,
+    "expectedStatusMessage": "Not Found",
+    "expectedRespMessage": "not found"
+  },
+  {
+    "testcaseId": "P_DELETENAME_TC_13",
+    "scenarioName": "Delete program by program name",
+    "endPoint": "deletebyprogname",
+    "requestOperation": "deletebyname",
+    "scenarioType": "Positive",
+    "expectedStatus": 200,
+    "expectedStatusMessage": "OK"
+  },
+  {
+    "testcaseId": "P_DELETENAME_TC_14",
+    "scenarioName": "Delete program by invalid program name",
+    "endPoint": "deletebyprogname",
+    "requestOperation": "deletebyname",
+    "scenarioType": "Negative",
+    "expectedStatus": 404,
+    "expectedStatusMessage": "Not Found",
+    "expectedRespMessage": "found"
+  },
+  {
+    "testcaseId": "P_PUTName_TC_15",
+    "scenarioName": "Update program with valid programName",
+    "endPoint": "program",
+    "requestOperation": "updateprogrambyName",
+    "scenarioType": "Positive",
+    "programName": "CCCbatch",
+    "programDescription": "University",
+    "programStatus": "Active",
+    "expectedStatus": 200,
+    "expectedStatusMessage": "Ok",
+    "expectedRespMessage": null
+  },
+  {
+    "testcaseId": "P_PUTName_TC_16",
+    "scenarioName": "Update program with invalid programName",
+    "endPoint": "program",
+    "requestOperation": "updateprogrambyName",
+    "scenarioType": "Negative",
+    "programName": "course-z",
+    "programDescription": "descriptionXX",
+    "programStatus": "Active",
+    "expectedStatus": 404,
+    "expectedStatusMessage": "Not Found",
+    "expectedRespMessage": "no Such program name"
+  },
+  {
+    "testcaseId": "P_GETALL_TC_17",
+    "scenarioName": "Get all programs",
+    "endPoint": "allPrograms",
+    "requestOperation": "getallprograms",
+    "scenarioType": "Positive",
+    "expectedStatus": 200,
+    "expectedStatusMessage": "OK"
+  },
+  {
+    "testcaseId": "P_GETALL_TC_18",
+    "scenarioName": "Get all programs with invalid endPoint",
+    "endPoint": "allProgram",
+    "requestOperation": "getallprograms",
+    "scenarioType": "Negative",
+    "expectedStatus": 404,
+    "expectedStatusMessage": "Not Found"
+  },
+  {
+    "testcaseId": "P_GETUSER_TC_19",
+    "scenarioName": "Get program by user",
+    "endPoint": "allProgramsWithUsers",
+    "requestOperation": "getbyUser",
+    "scenarioType": "Positive",
+    "expectedStatus": 200,
+    "expectedStatusMessage": "OK"
+  },
+  {
+    "testcaseId": "P_MISSING_TC_20",
+    "scenarioName": "Missing Program Name for Create",
+    "endPoint": "saveprogram",
+    "requestType": "POST",
+    "requestOperation": "Missing",
+    "scenarioType": "Negative",
+    "missingMandatory": "programName",
+    "programDescription": "ABCDE",
+    "programStatus": "Active",
+    "expectedStatus": 400,
+    "expectedStatusMessage": "Bad Request",
+    "expectedRespMessage": "Mandatory"
+  },
+  {
+    "testcaseId": "P_MISSING_TC_21",
+    "scenarioName": "Missing Program status for Create",
+    "endPoint": "saveprogram",
+    "requestType": "POST",
+    "requestOperation": "Missing",
+    "missingMandatory": "programStatus",
+    "scenarioType": "Negative",
+    "programName": "ABCDE",
+    "expectedStatus": 400,
+    "expectedStatusMessage": "Bad Request",
+    "expectedRespMessage": "Invalid Status"
+  },
+  {
+    "testcaseId": "P_MISSING_TC_22",
+    "scenarioName": "Missing Program status for Update",
+    "endPoint": "putprogram/65",
+    "requestType": "PUT",
+    "requestOperation": "Missing",
+    "missingMandatory": "programStatus",
+    "scenarioType": "Negative",
+    "programName": "ABCDE",
+    "expectedStatus": 400,
+    "expectedStatusMessage": "Bad Request",
+    "expectedRespMessage": "Invalid Status"
+  },
+
+
+
 {
     "testCaseId": "B_POST_TC_01",
     "scenarioName": "Create batch with valid data",
@@ -1008,7 +682,7 @@
     "expectedStatusMessage": "Bad Request"
   },
   {
-    "testCaseId": "B_GETALL_TC_01",
+    "testCaseId": "B_GETALL_TC_03",
     "scenarioName": "Get all batches",
     "scenarioType": "Positive",
     "endPoint": "batches",
@@ -1017,7 +691,7 @@
     "expectedStatusMessage": "OK"
   },
   {
-    "testCaseId": "B_GETALL_TC_02",
+    "testCaseId": "B_GETALL_TC_04",
     "scenarioName": "Get all batches with invalid endpoint",
     "scenarioType": "Negative",
     "endPoint": "batchess",
@@ -1026,7 +700,7 @@
     "expectedStatusMessage": "Not Found"
   },
   {
-    "testCaseId": "B_GETBYID_TC_01",
+    "testCaseId": "B_GETBYID_TC_05",
     "scenarioName": "Get batch by valid batchId",
     "scenarioType": "Positive",
     "endPoint": "batches/121",
@@ -1035,7 +709,7 @@
     "expectedStatusMessage": "OK"
   },
   {
-    "testCaseId": "B_GETBYID_TC_02",
+    "testCaseId": "B_GETBYID_TC_06",
     "scenarioName": "Get batch by invalid batchId",
     "scenarioType": "Negative",
     "endPoint": "batches/99999",
@@ -1044,7 +718,7 @@
     "expectedStatusMessage": "Not Found"
   },
   {
-    "testCaseId": "B_GETBYPROGID_TC_01",
+    "testCaseId": "B_GETBYPROGID_TC_07",
     "scenarioName": "Get batches by valid programId",
     "scenarioType": "Positive",
     "endPoint": "batches/program/121",
@@ -1053,7 +727,7 @@
     "expectedStatusMessage": "OK"
   },
   {
-    "testCaseId": "B_GETBYPROGID_TC_02",
+    "testCaseId": "B_GETBYPROGID_TC_08",
     "scenarioName": "Get batches by invalid programId",
     "scenarioType": "Negative",
     "endPoint": "batches/program/202020",
@@ -1062,7 +736,7 @@
     "expectedStatusMessage": "Not Found"
   },
   {
-    "testCaseId": "B_GETBYNAME_TC_01",
+    "testCaseId": "B_GETBYNAME_TC_09",
     "scenarioName": "Get batch by valid batchName",
     "scenarioType": "Positive",
     "endPoint": "batches/batchName/SDET2",
@@ -1071,7 +745,7 @@
     "expectedStatusMessage": "OK"
   },
   {
-    "testCaseId": "B_GETBYNAME_TC_02",
+    "testCaseId": "B_GETBYNAME_TC_10",
     "scenarioName": "Get batch by invalid batchName",
     "scenarioType": "Negative",
     "endPoint": "batches/batchName/INVALIDXYZ",
@@ -1080,7 +754,7 @@
     "expectedStatusMessage": "Not Found"
   },
   {
-    "testCaseId": "B_PUT_TC_01",
+    "testCaseId": "B_PUT_TC_11",
     "scenarioName": "Update batch with valid batchId",
     "scenarioType": "Positive",
     "endPoint": "batches/121",
@@ -1094,7 +768,7 @@
     "expectedStatusMessage": "OK"
   },
   {
-    "testCaseId": "B_PUT_TC_02",
+    "testCaseId": "B_PUT_TC_12",
     "scenarioName": "Update batch with invalid batchId",
     "scenarioType": "Negative",
     "endPoint": "batches/99999",
@@ -1108,7 +782,7 @@
     "expectedStatusMessage": "Not Found"
   },
   {
-    "testCaseId": "B_DELETE_TC_01",
+    "testCaseId": "B_DELETE_TC_13",
     "scenarioName": "Delete batch with valid batchId",
     "scenarioType": "Positive",
     "endPoint": "batches/121",
@@ -1117,13 +791,351 @@
     "expectedStatusMessage": "OK"
   },
   {
-    "testCaseId": "B_DELETE_TC_02",
+    "testCaseId": "B_DELETE_TC_14",
     "scenarioName": "Delete batch with invalid batchId",
     "scenarioType": "Negative",
     "endPoint": "batches/99999",
     "requestOperation": "deleteBatch",
     "expectedStatus": 404,
     "expectedStatusMessage": "Not Found"
+  },
+
+
+  {
+    "testCaseId": "S_Get_all_TC_01",
+    "scenarioName": "Get all skills",
+    "requestOperation": "getAllSkills",
+    "scenarioType": "Positive",
+    "endPoint": "allSkillMaster",
+    "expectedStatusCode": 200,
+    "expectedstatusline": "OK"
+  },
+  {
+    "testCaseId": "S_Get_all_TC_02",
+    "scenarioName": "Get all skills with invalid endpoint",
+    "requestOperation": "getAllSkills",
+    "scenarioType": "Negative",
+    "endPoint": "allSkilMaster",
+    "expectedStatusCode": 404,
+    "expectedstatusline": "not found"
+  },
+  {
+    "testCaseId": "S_Get_TC_03",
+    "scenarioName": "Get skill by valid skill name",
+    "requestOperation": "getSkillByName",
+    "scenarioType": "Positive",
+    "endPoint": "skills",
+    "expectedStatusCode": 200,
+    "expectedstatusline": "OK"
+  },
+  {
+    "testCaseId": "S_Get_TC_04",
+    "scenarioName": "Get skill by invalid skill name",
+    "requestOperation": "getSkillByName",
+    "scenarioType": "Negative",
+    "endPoint": "skills",
+    "skillMasterName": "goo*gle",
+    "expectedStatusCode": 404,
+    "expectedstatusline": "not found"
+  },
+  {
+    "testCaseId": "S_Get_TC_05",
+    "scenarioName": "Get skill by invalid endpoint",
+    "requestOperation": "getSkillByName",
+    "scenarioType": "Negative",
+    "endPoint": "skill",
+    "expectedStatusCode": 404,
+    "expectedstatusline": "not found"
+  },
+  {
+    "testCaseId": "S_Post_TC_06",
+    "scenarioName": "Create new skill with valid data",
+    "requestOperation": "createSkill",
+    "scenarioType": "Positive",
+    "endPoint": "SaveSkillMaster",
+    "expectedStatusCode": 200,
+    "expectedstatusline": "OK",
+    "skillName" : "Creaket"
+  },
+  {
+    "testCaseId": "S_Post_TC_07",
+    "scenarioName": "Create new skill with invalid data",
+    "requestOperation": "createSkill",
+    "scenarioType": "Negative",
+    "endPoint": "SaveSkillMaster",
+    "expectedStatusCode": 400,
+    "expectedstatusline": "bad request",
+    "skillName" : "Cric&ket"
+  },
+  {
+    "testCaseId": "S_Post_TC_08",
+    "scenarioName": "Create new skill with invalid endpoint",
+    "requestOperation": "createSkill",
+    "scenarioType": "Negative",
+    "endPoint": "SaveSkilMaster",
+    "expectedStatusCode": 404,
+    "expectedstatusline": "not found",
+    "skillName" : "Cricket"
+  },
+  {
+    "testCaseId": "S_Post_TC_09",
+    "scenarioName": "Create new skill with invalid content type",
+    "scenarioType": "Negative",
+    "endPoint": "SaveSkillMaster",
+    "expectedStatusCode": 415,
+    "expectedstatusline": "unsupported media",
+    "skillName" : "cricket"
+  },
+  {
+    "testCaseId": "S_Post_TC_10",
+    "scenarioName": "Create new skill with invalid method",
+    "scenarioType": "Negative",
+    "endPoint": "SaveSkillMaster",
+    "expectedStatusCode": 405,
+    "expectedstatusline": "method not found",
+    "skillName" : "cricket"
+  },
+  {
+    "testCaseId": "S_Post_TC_11",
+    "scenarioName": "Create new skill with no auth",
+    "scenarioType": "Negative",
+    "endPoint": "SaveSkillMaster",
+    "expectedStatusCode": 401,
+    "expectedstatusline": "unauthorized",
+    "skillName" : "cricket"
+  },
+  {
+    "testCaseId": "S_PUT_TC_12",
+    "scenarioName": "Update skill with valid data",
+    "requestOperation": "updateSkill",
+    "scenarioType": "Positive",
+    "endPoint": "updateSkills",
+    "expectedStatusCode": 200,
+    "expectedstatusline": "OK",
+    "skillName" : "football"
+  },
+  {
+    "testCaseId": "S_PUT_TC_13",
+    "scenarioName": "Update skill with invalid data",
+    "requestOperation": "updateSkill",
+    "scenarioType": "Negative",
+    "endPoint": "updateSkills",
+    "expectedStatusCode": 400,
+    "expectedstatusline": "bad request",
+    "skillName" : "footb%all"
+  },
+  {
+    "testCaseId": "S_PUT_TC_14",
+    "scenarioName": "Update skill with invalid skillId",
+    "requestOperation": "updateSkill",
+    "scenarioType": "Negative",
+    "endPoint": "updateSkills",
+    "expectedStatusCode": 404,
+    "expectedstatusline": "bad request",
+    "skillName" : "football",
+    "skillId": 10000
+  },
+  {
+    "testCaseId": "S_PUT_TC_15",
+    "scenarioName": "Update skill with invalid endpoint",
+    "requestOperation": "updateSkill",
+    "scenarioType": "Negative",
+    "endPoint": "updatSkills",
+    "expectedStatusCode": 404,
+    "expectedstatusline": "not found",
+    "skillName" : "football"
+  },
+  {
+    "testCaseId": "S_PUT_TC_16",
+    "scenarioName": "Update skill with invalid content type",
+    "scenarioType": "Negative",
+    "endPoint": "updateSkills",
+    "expectedStatusCode": 415,
+    "expectedstatusline": "unsupported media",
+    "skillName" : "football"
+  },
+  {
+    "testCaseId": "S_PUT_TC_17",
+    "scenarioName": "Update skill with invalid method",
+    "scenarioType": "Negative",
+    "endPoint": "updateSkills",
+    "expectedStatusCode": 405,
+    "expectedstatusline": "not allowed",
+    "skillName" : "football"
+  },
+  {
+    "testCaseId": "S_PUT_TC_18",
+    "scenarioName": "Update skill with no auth",
+    "scenarioType": "Negative",
+    "endPoint": "updateSkills",
+    "expectedStatusCode": 401,
+    "expectedstatusline": "unauthorized",
+    "skillName" : "football"
+  },
+  {
+    "testCaseId": "S_DELETE_TC_19",
+    "scenarioName": "Delete skill by valid skillId",
+    "requestOperation": "deleteSkill",
+    "scenarioType": "Positive",
+    "endPoint": "deletebySkillId",
+    "expectedStatusCode": 200,
+    "expectedstatusline": "OK"
+  },
+  {
+    "testCaseId": "S_DELETE_TC_20",
+    "scenarioName": "Delete skill by invalid skillId",
+    "requestOperation": "deleteSkill",
+    "scenarioType": "Negative",
+    "endPoint": "deletebySkillId",
+    "expectedStatusCode": 404,
+    "expectedstatusline": "OK",
+    "skillId": 10000
+  },
+  {
+    "testCaseId": "S_DELETE_TC_21",
+    "scenarioName": "Delete skill by invalid endpoint",
+    "requestOperation": "deleteSkill",
+    "scenarioType": "Negative",
+    "endPoint": "deletbySkillId",
+    "expectedStatusCode": 404,
+    "expectedstatusline": "not found"
+  },
+  {
+    "testCaseId": "S_DELETE_TC_22",
+    "scenarioName": "Delete skill with invalid method",
+    "scenarioType": "Negative",
+    "endPoint": "deletebySkillId",
+    "expectedStatusCode": 405,
+    "expectedstatusline": "method not allowed"
+  },
+  {
+    "testCaseId": "S_DELETE_TC_23",
+    "scenarioName": "Delete skill with no auth",
+    "scenarioType": "Negative",
+    "endPoint": "deletebySkillId",
+    "expectedStatusCode": 401,
+    "expectedstatusline": "unauthorized"
+  },
+
+
+
+  {
+    "testCaseId": "RP_POST_ResetPassword_TC_02",
+    "scenarioName": "Reset Password with invalid email using valid login token",
+    "scenarioType": "Negative",
+    "request_name": "ResetPassword",
+    "endPoint": "resetPassword",
+    "userLoginEmailId": "wrong-email@test.com",
+    "password": "ApiRequestA@23",
+    "Response_Status_Code": 400,
+    "expectedstatusline": "Bad Request"
+  },
+  {
+    "testCaseId": "RP_POST_ResetPassword_TC_03",
+    "scenarioName": "Reset Password with email blank using valid login token",
+    "scenarioType": "Negative",
+    "request_name": "ResetPassword",
+    "endPoint": "resetPassword",
+    "userLoginEmailId": "",
+    "password": "ApiRequestA@23",
+    "Response_Status_Code": 400,
+    "expectedstatusline": "Bad Request"
+  },
+  {
+    "testCaseId": "RP_POST_ResetPassword_TC_04",
+    "scenarioName": "Reset Password with email and password blank using valid login token",
+    "scenarioType": "Negative",
+    "request_name": "ResetPassword",
+    "endPoint": "resetPassword",
+    "userLoginEmailId": "",
+    "password": "",
+    "Response_Status_Code": 400,
+    "expectedstatusline": "Bad Request"
+  },
+  {
+    "testCaseId": "RP_POST_ResetPassword_TC_05",
+    "scenarioName": "Reset Password with valid email using valid login token",
+    "scenarioType": "Positive",
+    "request_name": "ResetPassword",
+    "endPoint": "resetPassword",
+    "userLoginEmailId": "Team3@gmail.com",
+    "password": "ApiRequestA@23",
+    "Response_Status_Code": 200,
+    "expectedstatusline": "OK"
+  },
+  {
+    "testCaseId": "L_POST_Login_After_Reset_TC_06",
+    "scenarioName": "Login after reset password with valid credentials",
+    "scenarioType": "Positive",
+    "request_name": "LoginAfterReset",
+    "endPoint": "login",
+    "userLoginEmailId": "Team3@gmail.com",
+    "password": "ApiRequestA@23",
+    "Response_Status_Code": 200,
+    "expectedstatusline": "OK"
+  },
+  {
+    "testCaseId": "L_POST_Login_After_Reset_TC_07",
+    "scenarioName": "Login after reset password with blank credentials",
+    "scenarioType": "Negative",
+    "request_name": "LoginAfterReset",
+    "endPoint": "login",
+    "userLoginEmailId": "",
+    "password": "",
+    "Response_Status_Code": 400,
+    "expectedstatusline": "Bad Request"
+  },
+  {
+    "testCaseId": "L_POST_Login_After_Reset_TC_08",
+    "scenarioName": "Login after reset password with blank credentials",
+    "scenarioType": "Negative",
+    "request_name": "LoginAfterReset",
+    "endPoint": "login",
+    "userLoginEmailId": "",
+    "password": "TeamRequestA@23",
+    "Response_Status_Code": 400,
+    "expectedstatusline": "Bad Request"
+  },
+  {
+    "testCaseId": "L_POST_Login_After_Reset_TC_09",
+    "scenarioName": "Login after reset password with blank credentials",
+    "scenarioType": "Negative",
+    "request_name": "LoginAfterReset",
+    "endPoint": "login",
+    "userLoginEmailId": "Team3@gmail.com",
+    "password": "",
+    "Response_Status_Code": 400,
+    "expectedstatusline": "Bad Request"
+  },
+  {
+    "testCaseId": "FP_POST_ConfirmEmail_TC_10",
+    "scenarioName": "ForgotPassword Confirm Email with valid email",
+    "scenarioType": "Positive",
+    "request_name": "ForgotPasswordConfirmEmail",
+    "endPoint": "login/forgotpassword/confirmEmail",
+    "userLoginEmailId": "Team3@gmail.com",
+    "Response_Status_Code": 201,
+    "expectedstatusline": "Created"
+  },
+  {
+    "testCaseId": "FP_POST_ConfirmEmail_TC_11",
+    "scenarioName": "ForgotPassword Confirm Email with invalid email",
+    "scenarioType": "Negative",
+    "request_name": "ForgotPasswordConfirmEmail",
+    "endPoint": "login/forgotpassword/confirmEmail",
+    "userLoginEmailId": "",
+    "Response_Status_Code": 400,
+    "expectedstatusline": "Bad Request"
+  },
+  {
+    "testCaseId": "L_GET_Logout_TC_12",
+    "scenarioName": "Logout successfully",
+    "scenarioType": "Positive",
+    "request_name": "Logout",
+    "endPoint": "logoutlms",
+    "Response_Status_Code": 200,
+    "expectedstatusline": "OK"
   }
+
 
 ]
