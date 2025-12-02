@@ -10,9 +10,6 @@
     "Response_Status_Code": 200,
     "expectedstatusline": "OK"
   },
-
-
-
 {
 	"testCaseId": "U_POST_Create_User_TC_01", 
 	"scenarioName": "User Creation with valid data",
@@ -400,9 +397,7 @@
 	"expectedStatusCode": 400,
 	"expectedStatusMessage": "Bad Request"
 },
-
-
-  {
+{
     "testcaseId": "P_POST_TC_01",
     "scenarioName": "Create valid program",
     "endPoint": "saveprogram",
@@ -816,9 +811,9 @@
     "requestOperation": "createSkill",
     "scenarioType": "Positive",
     "endPoint": "SaveSkillMaster",
-    "expectedStatusCode": 200,
+    "expectedStatusCode": 201,
     "expectedstatusline": "OK",
-    "skillName" : "Creaket"
+    "skillName" : "Cricket"
   },
   {
     "testCaseId": "S_Post_TC_07",
@@ -979,9 +974,6 @@
     "expectedStatusCode": 401,
     "expectedstatusline": "unauthorized"
   },
-
-
-
   {
     "testCaseId": "RP_POST_ResetPassword_TC_02",
     "scenarioName": "Reset Password with invalid email using valid login token",
@@ -1099,6 +1091,5 @@
     "Response_Status_Code": 200,
     "expectedstatusline": "OK"
   }
-
 ]
 
