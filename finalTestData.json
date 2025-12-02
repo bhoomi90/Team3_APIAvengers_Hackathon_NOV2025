@@ -667,7 +667,7 @@
     "scenarioName": "Get batch by invalid batchId",
     "scenarioType": "Negative",
     "endPoint": "batches/",
-    "batchId": 99999
+    "batchId": 99999,
     "requestOperation": "getBatchById",
     "expectedStatusCode": 404,
     "expectedStatusMessage": "Not Found"
@@ -686,7 +686,7 @@
     "scenarioName": "Get batches by invalid programId",
     "scenarioType": "Negative",
     "endPoint": "batches/program/",
-    "program_id": 202020
+    "program_id": 202020,
     "requestOperation": "getBatchByProgramId",
     "expectedStatusCode": 404,
     "expectedStatusMessage": "Not Found"
