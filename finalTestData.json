@@ -667,7 +667,7 @@
     "batchNoOfClasses": 12,
     "batchStatus": "active",
     "programId": 121,
-    "expectedStatus": 201,
+    "expectedStatusCode": 201,
     "expectedStatusMessage": "Created"
   },
   {
@@ -680,7 +680,7 @@
     "batchNoOfClasses": 12,
     "batchStatus": "active",
     "programId": 121,
-    "expectedStatus": 400,
+    "expectedStatusCode": 400,
     "expectedStatusMessage": "Bad Request"
   },
   {
@@ -689,7 +689,7 @@
     "scenarioType": "Positive",
     "endPoint": "batches",
     "requestOperation": "getAllBatches",
-    "expectedStatus": 200,
+    "expectedStatusCode": 200,
     "expectedStatusMessage": "OK"
   },
   {
@@ -698,7 +698,7 @@
     "scenarioType": "Negative",
     "endPoint": "batchess",
     "requestOperation": "getAllBatches",
-    "expectedStatus": 404,
+    "expectedStatusCode": 404,
     "expectedStatusMessage": "Not Found"
   },
   {
@@ -707,7 +707,7 @@
     "scenarioType": "Positive",
     "endPoint": "batches/121",
     "requestOperation": "getBatchById",
-    "expectedStatus": 200,
+    "expectedStatusCode": 200,
     "expectedStatusMessage": "OK"
   },
   {
@@ -716,7 +716,7 @@
     "scenarioType": "Negative",
     "endPoint": "batches/99999",
     "requestOperation": "getBatchById",
-    "expectedStatus": 404,
+    "expectedStatusCode": 404,
     "expectedStatusMessage": "Not Found"
   },
   {
@@ -725,7 +725,7 @@
     "scenarioType": "Positive",
     "endPoint": "batches/program/121",
     "requestOperation": "getBatchByProgramId",
-    "expectedStatus": 200,
+    "expectedStatusCode": 200,
     "expectedStatusMessage": "OK"
   },
   {
@@ -734,7 +734,7 @@
     "scenarioType": "Negative",
     "endPoint": "batches/program/202020",
     "requestOperation": "getBatchByProgramId",
-    "expectedStatus": 404,
+    "expectedStatusCode": 404,
     "expectedStatusMessage": "Not Found"
   },
   {
@@ -743,7 +743,7 @@
     "scenarioType": "Positive",
     "endPoint": "batches/batchName/SDET2",
     "requestOperation": "getBatchByName",
-    "expectedStatus": 200,
+    "expectedStatusCode": 200,
     "expectedStatusMessage": "OK"
   },
   {
@@ -752,7 +752,25 @@
     "scenarioType": "Negative",
     "endPoint": "batches/batchName/INVALIDXYZ",
     "requestOperation": "getBatchByName",
-    "expectedStatus": 404,
+    "expectedStatusCode": 404,
+    "expectedStatusMessage": "Not Found"
+  },
+  {
+    "testCaseId": "B_DELETE_TC_13",
+    "scenarioName": "Delete batch with valid batchId",
+    "scenarioType": "Positive",
+    "endPoint": "batches/121",
+    "requestOperation": "deleteBatch",
+    "expectedStatusCode": 200,
+    "expectedStatusMessage": "OK"
+  },
+  {
+    "testCaseId": "B_DELETE_TC_14",
+    "scenarioName": "Delete batch with invalid batchId",
+    "scenarioType": "Negative",
+    "endPoint": "batches/99999",
+    "requestOperation": "deleteBatch",
+    "expectedStatusCode": 404,
     "expectedStatusMessage": "Not Found"
   },
   {
@@ -766,7 +784,7 @@
     "batchNoOfClasses": 15,
     "batchStatus": "inactive",
     "programId": 121,
-    "expectedStatus": 200,
+    "expectedStatusCode": 200,
     "expectedStatusMessage": "OK"
   },
   {
@@ -780,27 +798,10 @@
     "batchNoOfClasses": 15,
     "batchStatus": "inactive",
     "programId": 121,
-    "expectedStatus": 404,
+    "expectedStatusCode": 404,
     "expectedStatusMessage": "Not Found"
   },
-  {
-    "testCaseId": "B_DELETE_TC_13",
-    "scenarioName": "Delete batch with valid batchId",
-    "scenarioType": "Positive",
-    "endPoint": "batches/121",
-    "requestOperation": "deleteBatch",
-    "expectedStatus": 200,
-    "expectedStatusMessage": "OK"
-  },
-  {
-    "testCaseId": "B_DELETE_TC_14",
-    "scenarioName": "Delete batch with invalid batchId",
-    "scenarioType": "Negative",
-    "endPoint": "batches/99999",
-    "requestOperation": "deleteBatch",
-    "expectedStatus": 404,
-    "expectedStatusMessage": "Not Found"
-  },
+
 
 
   {
